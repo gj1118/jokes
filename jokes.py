@@ -163,7 +163,8 @@ def main():
         try:
             os.system("cowsay '{0}'".format(selectedQuote.replace("'", "'\"'\"'")))
             time.sleep(timeToSleepInSeconds) # sleep for some time.
-        except Exception as err:
+        except Exception:
+            # why would we want to log exceptions - this is a smallish app, not the next Unicorn :) 
             runCommand = False
             print(selectedQuote)
         
