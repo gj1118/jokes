@@ -158,7 +158,7 @@ while runCommand == True:
     clearConsole()
     selectedQuote = random.choice(quotes)
     try:
-        os.system(r"cowsay {0} ".format(selectedQuote))
+        os.system("cowsay '{0}'".format(selectedQuote.replace("'", "'\"'\"'")))
         time.sleep(10) # sleep for some time.
     except Exception as err:
         runCommand = False
