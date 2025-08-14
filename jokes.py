@@ -149,19 +149,24 @@ quotes = [
 ]
 
 runCommand = True
+timeToSleepInSeconds = 10
 
 def clearConsole():
     clear = lambda: os.system("clear")
     clear()
 
-while runCommand == True:
-    clearConsole()
-    selectedQuote = random.choice(quotes)
-    try:
-        os.system("cowsay '{0}'".format(selectedQuote.replace("'", "'\"'\"'")))
-        time.sleep(10) # sleep for some time.
-    except Exception as err:
-        runCommand = False
-        print(selectedQuote)
+def main():
+    global runCommand
+    while runCommand == True:
+        clearConsole()
+        selectedQuote = random.choice(quotes)
+        try:
+            os.system("cowsay '{0}'".format(selectedQuote.replace("'", "'\"'\"'")))
+            time.sleep(timeToSleepInSeconds) # sleep for some time.
+        except Exception as err:
+            runCommand = False
+            print(selectedQuote)
         
-        
+
+if __name__ == '__main__':
+    main()
